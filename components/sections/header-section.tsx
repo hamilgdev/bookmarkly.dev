@@ -6,7 +6,7 @@ export const HeaderSection = () => {
 
       <div className="l-container">
         <div className="flex items-center justify-between">
-          <h1 className="text-">Bookmarkly</h1>
+          <h1 className="">Bookmarkly</h1>
 
           <div className="">
             <ThemeDropdown />

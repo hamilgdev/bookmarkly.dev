@@ -1,5 +1,5 @@
 export const BookmarklySection = () => {
   return (
-    <div>bookmarkly-section</div>
+    <div className="heading-font">bookmarkly-section</div>
   )
 }
