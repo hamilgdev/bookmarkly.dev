@@ -1,20 +1,14 @@
-import { ThemeDropdown } from '@/components'
+import { Logo, ThemeDropdown } from '@/components'
 
 export const HeaderSection = () => {
   return (
-    <header className="flex items-center min-h-[54px] bg-[var(--accent)] dark:bg-[var(--accent-v900)]">
-
+    <header className="sticky top-0 z-50 flex items-center min-h-[54px] bg-[var(--accent)] dark:bg-[var(--accent-v900)] drop-shadow-md border-b border-[var(--neutral-delicate)] dark:border-[var(--accent-v700)]">
       <div className="l-container">
         <div className="flex items-center justify-between">
-          <h1 className="">Bookmarkly</h1>
-
-          <div className="">
-            <ThemeDropdown />
-          </div>
+          <Logo />
+          <ThemeDropdown />
         </div>
-
       </div>
-
     </header>
   )
 }

@@ -17,7 +17,7 @@ export default function RootLayout ({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${rubik.variable}`}>
+      <body className={`${poppins.variable} ${rubik.variable} flex flex-col min-h-screen`}>
         <UIThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -25,7 +25,7 @@ export default function RootLayout ({
           disableTransitionOnChange
         >
           <HeaderSection />
-          <main className="l-container">
+          <main className='flex-1'>
             {children}
           </main>
           <FooterSection />

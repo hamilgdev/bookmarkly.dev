@@ -20,27 +20,30 @@
   --neutral-delicate: #E6E9EA;
   --neutral-luminous: #FDFDFD;
   
+  --ca-default: #f1f1f1;
+
+  /* Web Tools */
   --ca-emerald-v50: #ecfdf5;
   --ca-emerald-v700: #047857;
-  
+  /* NPM Dependencies */
   --ca-yellow-v50: #fefce8;
   --ca-yellow-v700: #a16207;
-
+  /* Icons */
   --ca-blue-v50: #eff6ff;
   --ca-blue-v700: #1d4ed8;
-
+  /* Colors */
   --ca-pink-v50: #fdf2f8;
   --ca-pink-v700: #be185d;
-
+  /* Play Grounds */
   --ca-green-v50: #f0fdf4;
   --ca-green-v700: #15803d;
-
+  /* UI Builders */
   --ca-red-v50: #fef2f2;
   --ca-red-v700: #b91c1c;
-
+  /* Vectors */
   --ca-orange-v50: #fff7ed;
   --ca-orange-v700: #c2410c;
-
+  /* Fonts */
   --ca-stone-v50: #fafaf9;
   --ca-stone-v700: #44403c;
 
@@ -55,24 +58,26 @@
 /* layout */
 
 .l-container {
-  @apply px-4 lg:m-auto w-full xl:px-0 max-w-[var(--max-width)]
+  @apply px-4 lg:mx-auto w-full xl:px-0 max-w-[var(--max-width)]
 }
 
 /* theme  */
 
 .heading-font {
   font-family: var(--heading-font);
+  @apply leading-tight text-[var(--neutral-default)] dark:text-[var(--neutral-luminous)];
 }
 
 .body-font {
   font-family: var(--body-font);
+  @apply leading-relaxed text-[var(--neutral-default)] dark:text-[var(--neutral-luminous)];
 }
 
 /* RESET STYLES */
 
 body {
   font-family: var(--body-font);
-  @apply leading-relaxed;
+  @apply leading-relaxed text-[var(--neutral-default)] dark:text-[var(--neutral-luminous)] bg-[var(--accent-v50)] dark:bg-[var(--accent-v800)];
 }
 
 h1,
@@ -82,5 +87,5 @@ h4,
 h5,
 h6 {
  font-family: var(--heading-font);
- @apply leading-tight;
+ @apply leading-tight text-[var(--neutral-default)] dark:text-[var(--neutral-luminous)];
 }

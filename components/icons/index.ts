@@ -1,2 +1,5 @@
 export * from './sun-icon'
 export * from './moon-icon'
+export * from './search-icon'
+export * from './filter-icon'
+export * from './tags-icon'

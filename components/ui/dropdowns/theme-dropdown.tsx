@@ -2,8 +2,8 @@
 
 import { useTheme } from 'next-themes'
 
-import { MoonIcon, SunIcon } from '@/components/icons'
-import { useState } from 'react'
+import { MoonIcon, SunIcon } from '@/components'
+import { useEffect, useState } from 'react'
 
 export const ThemeDropdown = () => {
   const [toggleMenu, setToggleMenu] = useState(false)
@@ -16,6 +16,11 @@ export const ThemeDropdown = () => {
     setTheme(theme)
     setToggleMenu(false)
   }
+
+  useEffect(() => {
+    setTheme('system')
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
@@ -44,7 +49,7 @@ export const ThemeDropdown = () => {
           </li>
         </ul>
       </div>
-      {toggleMenu && (<div onClick={() => setToggleMenu(false)} className="bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-30" />)}
+      {toggleMenu && (<div onClick={() => setToggleMenu(false)} className="fixed min-h-screen inset-0 z-30 bg-opacity-50 dark:bg-opacity-80" />)}
     </>
   )
 }
