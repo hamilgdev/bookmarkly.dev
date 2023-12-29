@@ -26,6 +26,7 @@
     "react/no-unknown-property": "off",
     // @next/
     "@next/next/no-img-element": "off",
+    "space-before-function-paren": "off",
 
     "no-undef": "off",
     "indent": [

@@ -1,12 +1,12 @@
 /* eslint-disable indent */
 import { BOOKMARKS_CATEGORIES } from '@/constants/config'
 
-interface DetermineCategoryColorHandlerProps {
+interface CategoryColorHandlerReturn {
   background: string
   markerTagBackground: string
 }
 
-export const determineCategoryColorHandler = (category: BOOKMARKS_CATEGORIES): DetermineCategoryColorHandlerProps => {
+export const categoryColorHandler = (category: BOOKMARKS_CATEGORIES): CategoryColorHandlerReturn => {
   let background = ''
   let markerTagBackground = ''
 

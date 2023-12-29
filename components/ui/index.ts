@@ -1,5 +1,6 @@
 export * from './dropdowns'
-export * from './logo'
+export * from './logo/Logo'
 export * from './forms'
 export * from './cards'
 export * from './buttons'
+export * from './loadings'

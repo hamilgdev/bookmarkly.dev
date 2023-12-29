@@ -1,0 +1,33 @@
+{
+  "object": "page",
+  "id": "7c32b4ca-ae2d-4a4d-a890-c9742d4049d1",
+  "created_time": "2023-08-18T12:57:00.000Z",
+  "last_edited_time": "2023-12-20T20:47:00.000Z",
+  "created_by": {
+    "object": "user",
+    "id": "abedc1ec-2686-42ed-b25b-ed4242791a58"
+  },
+  "last_edited_by": {
+    "object": "user",
+    "id": "abedc1ec-2686-42ed-b25b-ed4242791a58"
+  },
+  "cover": null,
+  "icon": {
+    "type": "emoji",
+    "emoji": "🪅"
+  },
+  "parent": {
+    "type": "database_id",
+    "database_id": "023fa761-dba9-472b-9b97-64dc7823b8b2"
+  },
+  "archived": false,
+  "properties": {
+    "url": "[Object]",
+    "summary": "[Object]",
+    "category": "[Object]",
+    "tags": "[Object]",
+    "name": "[Object]"
+  },
+  "url": "https://www.notion.so/Shots-7c32b4caae2d4a4da890c9742d4049d1",
+  "public_url": null
+}

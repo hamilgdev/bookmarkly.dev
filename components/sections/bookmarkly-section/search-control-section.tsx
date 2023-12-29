@@ -1,19 +1,38 @@
-import { SearchBookmarklyForm } from '@/components'
+import { SearchBookmarklyForm, TagLoading } from '@/components'
 
-export const SearchControlSection = () => {
+interface SearchControlSectionProps {
+  isWorking: boolean
+  totalBookmarks: number
+  totalCategories: number
+  totalTags: number
+}
+
+export const SearchControlSection = ({
+  totalBookmarks,
+  totalCategories,
+  totalTags,
+  isWorking
+}:SearchControlSectionProps) => {
   return (
     <div className="md:max-w-xl mx-auto">
       <SearchBookmarklyForm />
-      <div className="flex justify-center lg:justify-start gap-4 mt-2">
-        <div className="text-[var(--neutral-thin)] dark:text-[var(--neutral-delicate)]">
-          <small>180 bookmarks</small>
-        </div>
-        <div className="text-[var(--neutral-thin)] dark:text-[var(--neutral-delicate)]">
-          <small>8 Categories</small>
-        </div>
-        <div className="text-[var(--neutral-thin)] dark:text-[var(--neutral-delicate)]">
-          <small>34 Tags</small>
-        </div>
+
+      <div className="flex justify-center min-h-[26px] lg:justify-start gap-4 mt-2">
+        {isWorking && <TagLoading />}
+        {!isWorking && (
+          <>
+            <div className="text-[var(--neutral-thin)] dark:text-[var(--neutral-delicate)]">
+              <small>{totalBookmarks} bookmarks</small>
+            </div>
+            <div className="text-[var(--neutral-thin)] dark:text-[var(--neutral-delicate)]">
+              <small>{totalCategories} Categories</small>
+            </div>
+            <div className="text-[var(--neutral-thin)] dark:text-[var(--neutral-delicate)]">
+              <small>{totalTags} Tags</small>
+            </div>
+          </>
+        )}
+
       </div>
     </div>
   )
