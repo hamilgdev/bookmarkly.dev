@@ -1,7 +1,7 @@
 'use server'
 
 import { Client, APIErrorCode } from '@notionhq/client'
-
+import { revalidatePath } from 'next/cache'
 import { Bookmark, Bookmarkly } from '@/interfaces'
 import { bookmarksAdapter } from '@/adapters'
 import { BOOKMARKS_CATEGORIES, SEARCH_FILTERS } from '@/constants/config'
@@ -52,7 +52,6 @@ const notion = new Client({
 export const getBookmarksAction = async ({ filterBy = {} }: FilterByProps): Promise<Bookmarkly[]> => {
   try {
     const query: Query = { database_id: process.env.BOOKMARKLY_NOTION_DATABASE_ID as string }
-
     if (Object.keys(filterBy).length) {
       const filters = Object.keys(filterBy).map((key) => {
         if (key === SEARCH_FILTERS.CATEGORY) {
@@ -89,8 +88,10 @@ export const getBookmarksAction = async ({ filterBy = {} }: FilterByProps): Prom
     }
 
     const { results } = await notion.databases.query(query as any)
+    revalidatePath('/')
     return results.map((result) => bookmarksAdapter(result as Bookmark))
   } catch (error: any) {
+    revalidatePath('/')
     if (error.code === APIErrorCode.ObjectNotFound) {
       console.error('The database was not found.')
       return []
