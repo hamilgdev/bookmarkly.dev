@@ -10,4 +10,10 @@ export enum BOOKMARKS_CATEGORIES {
   FONTS = 'Fonts',
 }
 
+export enum SEARCH_FILTERS {
+  CATEGORY = 'category',
+  TAGS = 'tags',
+  NAME = 'name',
+}
+
 export const SUPPORTED_BOOKMARKS_CATEGORIES = Object.values(BOOKMARKS_CATEGORIES)

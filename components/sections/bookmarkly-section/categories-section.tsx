@@ -2,22 +2,28 @@
 
 import { useRouter } from 'next/navigation'
 
-import { FilterIcon, MinimalButton, TagLoading, TagsIcon } from '@/components'
+import { FilterIcon, MinimalButton, TagLoading, TagsDrawerNavigation, TagsIcon } from '@/components'
 import { BOOKMARKS_CATEGORIES } from '@/constants/config'
 import { categoryColorHandler } from '@/handlers'
+import { useSearch } from '@/hooks'
+import { useState } from 'react'
 
 interface CategoriesSectionProps {
   categories: BOOKMARKS_CATEGORIES[]
+  tags: string[]
   isWorking: boolean
 }
 
-export const CategoriesSection = ({ categories, isWorking }: CategoriesSectionProps) => {
+export const CategoriesSection = ({ categories, tags, isWorking }: CategoriesSectionProps) => {
+  const { updateSearchParams } = useSearch()
   const router = useRouter()
+
+  const [toggleDrawerMenu, setToggleDrawerMenu] = useState(false)
 
   const handleFilterBy = async (category: string) => {
     if (!category.trim()) return
     if (category === 'All Categories') return router.push('/')
-    router.push(`/?category=${category}`)
+    updateSearchParams({ category })
   }
 
   return (
@@ -28,7 +34,11 @@ export const CategoriesSection = ({ categories, isWorking }: CategoriesSectionPr
           <h3 className="text-base text-[var(--neutral-default)] dark:text-[var(--neutral-luminous)]">Categories</h3>
         </div>
         <div className="">
-          <MinimalButton text='Filter by Tags' icon={<TagsIcon />} />
+          <MinimalButton
+            text='Filter by Tags'
+            icon={<TagsIcon />}
+            onClick={() => setToggleDrawerMenu(true)}
+          />
         </div>
       </div>
       <div
@@ -42,7 +52,7 @@ export const CategoriesSection = ({ categories, isWorking }: CategoriesSectionPr
               onClick={() => handleFilterBy('All Categories')}
               type="button"
               className="px-2 py-2 min-w-fit text-sm font-medium rounded border text-[var(--neutral-default)] bg-[var(--ca-default)] dark:bg-[var(--ca-default)] hover:opacity-80 hover:border-[var(--neutral-default)] focus:ring-2 focus:ring-[var(--neutral-default)] focus:text-[var(--neutral-default)] dark:hover:border-blue-500 dark:focus:ring-blue-500">
-           All Categories
+              All Categories
             </button>
 
             {categories.map((category) => {
@@ -61,6 +71,8 @@ export const CategoriesSection = ({ categories, isWorking }: CategoriesSectionPr
           </>
         )}
       </div>
+
+      <TagsDrawerNavigation tags={tags} isOpen={toggleDrawerMenu} onClose={setToggleDrawerMenu} />
     </>
   )
 }

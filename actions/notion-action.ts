@@ -4,20 +4,35 @@ import { Client, APIErrorCode } from '@notionhq/client'
 
 import { Bookmark, Bookmarkly } from '@/interfaces'
 import { bookmarksAdapter } from '@/adapters'
+import { BOOKMARKS_CATEGORIES, SEARCH_FILTERS } from '@/constants/config'
 
-type FilterByProperty = 'category' | 'tags'
+type FilterByProperty = 'category' | 'tags | name'
 
 export interface FilterByProps {
-  query: string;
-  property: FilterByProperty;
+  filterBy?: {
+    category?: BOOKMARKS_CATEGORIES
+    tags?: string[]
+    name?: string
+  }
 }
 
-interface QueryFilter {
+interface QueryFilterByRichText {
   property: FilterByProperty;
-  select?: {
+  rich_text: {
+    contains: string;
+  };
+}
+
+interface QueryFilterBySelect {
+  property: FilterByProperty;
+  select: {
     equals: string;
   };
-  multi_select?: {
+}
+
+interface QueryFilterByMultiSelect {
+  property: FilterByProperty;
+  multi_select: {
     contains: string;
   };
 }
@@ -25,8 +40,8 @@ interface QueryFilter {
 interface Query {
   database_id: string;
   filter?: {
-    or?: QueryFilter[];
-    and?: QueryFilter[];
+    or?: Array<QueryFilterByRichText | QueryFilterBySelect | QueryFilterByMultiSelect>;
+    and?: Array<QueryFilterByRichText | QueryFilterBySelect | QueryFilterByMultiSelect>;
   };
 }
 
@@ -34,33 +49,42 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN
 })
 
-export const getBookmarksAction = async ({ filterBy }: { filterBy?: any } = {}): Promise<Bookmarkly[]> => {
+export const getBookmarksAction = async ({ filterBy = {} }: FilterByProps): Promise<Bookmarkly[]> => {
   try {
     const query: Query = { database_id: process.env.BOOKMARKLY_NOTION_DATABASE_ID as string }
 
     if (Object.keys(filterBy).length) {
-      let filter: any = {}
-
-      if (filterBy.category) {
-        filter = {
-          property: Object.keys(filterBy)[0] as FilterByProperty,
-          select: {
-            equals: filterBy.category
+      const filters = Object.keys(filterBy).map((key) => {
+        if (key === SEARCH_FILTERS.CATEGORY) {
+          return {
+            property: key as FilterByProperty,
+            select: {
+              equals: filterBy[key]
+            }
           }
         }
-      }
-
-      if (filterBy.tags) {
-        filter = {
-          property: Object.keys(filterBy)[0] as FilterByProperty,
-          multi_select: {
-            contains: filterBy.tags
+        if (key === SEARCH_FILTERS.NAME) {
+          return {
+            property: key as FilterByProperty,
+            rich_text: {
+              contains: filterBy[key]
+            }
           }
         }
-      }
+        if (key === SEARCH_FILTERS.TAGS) {
+          const tags = Array.isArray(filterBy.tags) ? filterBy.tags : [filterBy.tags]
+          return tags.map((tag) => ({
+            property: key as FilterByProperty,
+            multi_select: {
+              contains: tag
+            }
+          }))
+        }
+        return null
+      }).filter(Boolean) as Array<QueryFilterByRichText | QueryFilterBySelect | QueryFilterByMultiSelect>
 
       query.filter = {
-        or: [filter]
+        or: filters.flat()
       }
     }
 

@@ -2,12 +2,12 @@
 
 import { Bookmarkly } from '@/interfaces'
 
+import { useBookmarkly } from '@/hooks'
+
 import { DescriptionSection } from './description-section'
 import { SearchControlSection } from './search-control-section'
 import { BookmarksSection } from './bookmarks-section'
 import { CategoriesSection } from './categories-section'
-
-import { useBookmarkly } from '@/hooks'
 
 export const BookmarklySection = ({ bookmarklies = [] }: { bookmarklies: Bookmarkly[] }) => {
   const { bookmarks, isWorking } = useBookmarkly()
@@ -28,6 +28,7 @@ export const BookmarklySection = ({ bookmarklies = [] }: { bookmarklies: Bookmar
       </section>
       <section className="l-container mb-4">
         <CategoriesSection
+          tags={tags}
           categories={categories}
           isWorking={isWorking}
         />
