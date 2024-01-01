@@ -4,7 +4,10 @@ export const FooterSection = () => {
       <div className="l-container">
         <div className="flex items-center justify-between h-8">
           <small>&copy; {new Date().getFullYear()} Bookmarkly</small>
-          <small>Created by <a href="#" className=" hover:underline">&#64;hamilgdev</a></small>
+          <small>Created by <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/hamilgdev/" className=" hover:underline">&#64;hamilgdev</a></small>
         </div>
       </div>
     </footer>
