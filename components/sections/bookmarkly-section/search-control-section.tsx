@@ -22,7 +22,7 @@ export const SearchControlSection = ({
         {!isWorking && (
           <>
             <div className="text-[var(--neutral-thin)] dark:text-[var(--neutral-delicate)]">
-              <small>{totalBookmarks} bookmarks</small>
+              <small>{totalBookmarks >= 100 ? '100+' : totalBookmarks} Bookmarks</small>
             </div>
             <div className="text-[var(--neutral-thin)] dark:text-[var(--neutral-delicate)]">
               <small>{totalCategories} Categories</small>

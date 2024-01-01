@@ -9,6 +9,8 @@ export enum BOOKMARKS_CATEGORIES {
   VECTORS = 'Vectors',
   FONTS = 'Fonts',
   FREE_STOCK = 'Free Stock',
+  WEB_API = 'Web API',
+  DESIGN_SYSTEMS = 'Design Systems',
   UNCATEGORIZED = 'Uncategorized',
 }
 

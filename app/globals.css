@@ -49,6 +49,12 @@
   /* Free stock */
   --ca-fuchsia-v50: #faf5ff;
   --ca-fuchsia-v700: #a21caf;
+  /* Web API */
+  --ca-indigo-v50: #eef2ff;
+  --ca-indigo-v700: #4338ca;
+  /* Design System */
+  --ca-cyan-v50: #ecfeff;
+  --ca-cyan-v700: #0e7490;
 
   /* TYPOGRAPHY */
   --heading-font: "Rubik";

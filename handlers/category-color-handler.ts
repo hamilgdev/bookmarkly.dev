@@ -47,6 +47,14 @@ export const categoryColorHandler = (category: BOOKMARKS_CATEGORIES): CategoryCo
       background = 'var(--ca-fuchsia-v50)'
       markerTagBackground = 'var(--ca-fuchsia-v700)'
       break
+    case BOOKMARKS_CATEGORIES.WEB_API:
+      background = 'var(--ca-indigo-v50)'
+      markerTagBackground = 'var(--ca-indigo-v700)'
+      break
+    case BOOKMARKS_CATEGORIES.DESIGN_SYSTEMS:
+      background = 'var(--ca-cyan-v50)'
+      markerTagBackground = 'var(--ca-cyan-v700)'
+      break
     default:
       background = 'var(--ca-default)'
       markerTagBackground = 'var(--neutral-thin)'
