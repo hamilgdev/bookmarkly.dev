@@ -8,6 +8,8 @@ export enum BOOKMARKS_CATEGORIES {
   UI_BUILDERS = 'UI Builders',
   VECTORS = 'Vectors',
   FONTS = 'Fonts',
+  FREE_STOCK = 'Free Stock',
+  UNCATEGORIZED = 'Uncategorized',
 }
 
 export enum SEARCH_FILTERS {

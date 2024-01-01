@@ -46,6 +46,9 @@
   /* Fonts */
   --ca-stone-v50: #fafaf9;
   --ca-stone-v700: #44403c;
+  /* Free stock */
+  --ca-fuchsia-v50: #faf5ff;
+  --ca-fuchsia-v700: #a21caf;
 
   /* TYPOGRAPHY */
   --heading-font: "Rubik";

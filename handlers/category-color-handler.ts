@@ -43,9 +43,13 @@ export const categoryColorHandler = (category: BOOKMARKS_CATEGORIES): CategoryCo
       background = 'var(--ca-stone-v50)'
       markerTagBackground = 'var(--ca-stone-v700)'
       break
+    case BOOKMARKS_CATEGORIES.FREE_STOCK:
+      background = 'var(--ca-fuchsia-v50)'
+      markerTagBackground = 'var(--ca-fuchsia-v700)'
+      break
     default:
       background = 'var(--ca-default)'
-      markerTagBackground = 'var(--neutral-delicate)'
+      markerTagBackground = 'var(--neutral-thin)'
       break
   }
 
