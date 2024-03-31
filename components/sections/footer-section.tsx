@@ -7,7 +7,7 @@ export const FooterSection = () => {
           <small>Created by <a
             rel="noopener noreferrer"
             target="_blank"
-            href="https://www.linkedin.com/in/hamilgdev/" className=" hover:underline">&#64;hamilgdev</a></small>
+            href="https://www.hamilg.dev/" className=" hover:underline">&#64;hamilgdev</a></small>
         </div>
       </div>
     </footer>
