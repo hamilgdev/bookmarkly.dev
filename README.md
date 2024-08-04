@@ -1,6 +1,6 @@
 # Bookmarkly
 
-[![Figma](https://img.shields.io/badge/Figma-%23664AFF.svg?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1401940349118888001/bookmarkly-dev)
+[![Figma](https://img.shields.io/badge/Figma-%23664AFF.svg?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1389393012704514734/hamilg-dev)
 
 One favorite at a time. Bookmarkly - where developers thrive and favorites come to life!
 
